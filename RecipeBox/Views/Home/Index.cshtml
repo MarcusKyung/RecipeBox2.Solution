@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models;
+
+<h1>Welcome to the RecipeBox!</h1>
+
+<hr>
+<h4>Recipes</h4>
+@if (Model["recipes"].Length == 0)
+{
+  <p>No Recipes have been added yet!</p>
+} 
+<ul>
+  @foreach (Recipe recipe in Model["recipes"])
+  {
+    <li>@Html.ActionLink(@recipe.RecipeName, "Details", "Recipes", new { id = @recipe.RecipeId})</li>
+  }
+</ul>
+<hr>
+
+<p>@Html.ActionLink("Manage Ingredients", "Index", "Ingredients")</p>
+<p>@Html.ActionLink("Manage Recipes", "Index", "Recipes")</p> 
+<p>@Html.ActionLink("Manage Tags", "Index", "Tags")</p>

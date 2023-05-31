@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models;
+
+<h1>Ingredients</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No ingredients have been added yet!</h3>
+} 
+
+@foreach (Ingredient ingredient in Model)
+{
+  <li>@Html.ActionLink($"{ingredient.IngredientName}", "Details", new { id = ingredient.IngredientId })</li>
+}
+
+<p>@Html.ActionLink("Add new ingredient", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
