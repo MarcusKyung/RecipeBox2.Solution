@@ -4,38 +4,55 @@ using Microsoft.AspNetCore.Mvc;
 using RecipeBox.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace RecipeBox.Controllers
 {
+  [Authorize]
   public class RecipesController : Controller
   {
     private readonly RecipeBoxContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public RecipesController(RecipeBoxContext db)
+    public RecipesController(UserManager<ApplicationUser> userManager, RecipeBoxContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Recipes.ToList());
+      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+      List<Recipe> userRecipes = _db.Recipes
+                          .Where(entry => entry.User.Id == currentUser.Id)
+                          .Include(recipe => recipe.IngredientRecipeJoinEntities)
+                          .ToList();
+      return View(userRecipes);
     }
 
     public ActionResult Create()  
     {
+      ViewBag.IngredientId = new SelectList(_db.Ingredients, "IngredientId", "IngredientName");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Recipe recipe)
+    public async Task<ActionResult> Create(Recipe recipe, int IngredientId)
     {
       if (!ModelState.IsValid)
       {
-          ViewBag.IngredientId = new SelectList(_db.Ingredients, "IngredientId", "IngredientName");
-          return View(recipe);
+        ViewBag.IngredientId = new SelectList(_db.Ingredients, "Ingredientid", "IngredientName");
+        return View(recipe);
       }
       else
       {
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+        recipe.User = currentUser;
         _db.Recipes.Add(recipe);
         _db.SaveChanges();
         return RedirectToAction("Index");
