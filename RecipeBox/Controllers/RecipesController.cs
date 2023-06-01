@@ -36,7 +36,7 @@ namespace RecipeBox.Controllers
                             .ToList();
         return View(userRecipes);
       } else {
-                string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
         List<Recipe> userRecipes = _db.Recipes
                             .Where(entry => entry.User.Id == currentUser.Id)
@@ -168,9 +168,13 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-    public ActionResult Results(string recipeName)
+    public async Task<ActionResult> Results(string recipeName)
     {
+      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+
       Recipe thisRecipe = _db.Recipes
+                              .Where(entry => entry.User.Id == currentUser.Id)
                               .Include(recipe => recipe.IngredientRecipeJoinEntities)
                               .ThenInclude(join => join.Ingredient)
                               .Include(tag => tag.RecipeTagJoinEntities)
@@ -179,11 +183,11 @@ namespace RecipeBox.Controllers
 
       if (thisRecipe != null)
       {
-          return View(thisRecipe);
+        return View(thisRecipe);
       }
       else
       {
-          return RedirectToAction("NoResults");
+        return RedirectToAction("NoResults");
       }
     }
 
@@ -192,17 +196,25 @@ namespace RecipeBox.Controllers
       return View();
     }
 
-    public ActionResult RandomRecipe()
+    public async Task<ActionResult> RandomRecipe()
     {
-      Recipe randomRecipe = _db.Recipes
+      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+
+      List<Recipe> userRecipes = _db.Recipes
+        .Where(entry => entry.User.Id == currentUser.Id)
         .Include(recipe => recipe.IngredientRecipeJoinEntities)
         .ThenInclude(join => join.Ingredient)
         .Include(recipe => recipe.RecipeTagJoinEntities)
         .ThenInclude(join => join.Tag)
-        .FirstOrDefault();
-      
-      if (randomRecipe != null)
+        .ToList();
+
+      if (userRecipes.Count > 0)
       {
+        Random random = new Random();
+        int randomIndex = random.Next(0, userRecipes.Count);
+        Recipe randomRecipe = userRecipes[randomIndex];
+      
         return View(randomRecipe);
       }
       else

@@ -75,9 +75,54 @@ div#footer {
 	color: #ef4229;
 }
 
+/* RECIPES INDEX PAGE TEXT STYLING */
+.recipe-title { 
+	color: black;
+}
+
+.recipe-title:hover { 
+	color: #ef4229;
+}
+
+.recipe-title a {
+	color: black;
+}
+
+.recipe-title:hover a{
+	color: #ef4229;
+}
+
+.recipe-title:hover{
+	color: #ef4229;
+}
+
+/* INGREDIENTS INDEX PAGE TEXT STYLING */
+.ingredient-title { 
+	color: black;
+}
+
+.ingredient-title:hover { 
+	color: #ef4229;
+}
+
+.ingredient-title a {
+	color: black;
+}
+
+.ingredient-title:hover a{
+	color: #ef4229;
+}
+
+.ingredient-title:hover{
+	color: #ef4229;
+}
+
+.ingredient-card {
+	margin-bottom: 15px;
+}
+
 /* BUTTON STYLING */
 input.btn {
 	color: white;
 	background-color: #ef4229;
 }
-
