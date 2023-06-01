@@ -20,6 +20,10 @@ body {
 	color: black;
 }
 
+.headerlink {
+	color: black;
+}
+
 /* fix me!! */
 .test-case{ 
 	outline: red dashed 1px;
@@ -28,4 +32,8 @@ body {
 
 .recipe-card{
 	margin-bottom: 15px;
+}
+
+div {
+	outline: red dashed 1px;
 }

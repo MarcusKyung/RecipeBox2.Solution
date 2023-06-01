@@ -47,7 +47,7 @@
 <hr>
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Recipes</h4>
+  <h4><a href="/Recipes" class="headerlink">Recipes</a></h4>
   @if (Model["recipes"].Length == 0)
   {
     <p>No recipes have been added yet!</p>
@@ -74,7 +74,7 @@ else
 }
 <hr>
 <hr>
-<h4>Tags</h4>
+<h4><a href="/Tags" class="headerlink">Tags</a></h4>
 @if (Model["tags"].Length == 0)
 {
   <p>No tags have been added yet!</p>
@@ -87,7 +87,7 @@ else
 </ul>
 <hr>
 <hr>
-<h4>Ingredients</h4>
+<h4><a href="/Ingredients" class="headerlink">Ingredients</a></h4>
 @if (Model["ingredients"].Length == 0)
 {
   <p>No ingredients have been added yet!</p>

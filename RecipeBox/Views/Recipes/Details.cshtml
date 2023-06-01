@@ -41,11 +41,11 @@
       <div class="accordion-body">
         @if(@Model.IngredientRecipeJoinEntities.Count == 0)
         {
-          <p>This recipe does not have any any ingredients - @Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
+          <p>This recipe does not have any any ingredients added yet - @Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
         }
         else
         {
-          <h4>This recipe has the following ingredients:</h4>
+          <h4>This recipe uses the following ingredients:</h4>
           <ul>
           @foreach(IngredientRecipe join in Model.IngredientRecipeJoinEntities)
           {
@@ -71,7 +71,7 @@
       <div class="accordion-body">
         @if(@Model.RecipeTagJoinEntities.Count == 0)
         {
-          <p>This recipe does not have any any tags - @Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
+          <p>This recipe does not have any any tags added yet - @Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
         }
         else
         {
