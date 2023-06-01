@@ -1,0 +1,101 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models
+@model RecipeBox.Models.Recipe
+
+<h2>Recipe Details</h2>
+<hr />
+<h3>Random Recipe Name: @Html.DisplayFor(model => model.RecipeName)</h3>
+<h3>Recipe Rating:
+  @for (int i = 1; i <= Model.RecipeRating; i++)
+  {
+    <i class="fas fa-star"></i>
+  }
+  @for (int i = Model.RecipeRating + 1; i <= 5; i++)
+  {
+    <i class="far fa-star"></i>
+  }
+</h3>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Instructions
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>@Html.DisplayFor(model => model.RecipeInstructions)</p>  
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Ingredients
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        @if(@Model.IngredientRecipeJoinEntities.Count == 0)
+        {
+          <p>This recipe does not have any any ingredients added yet - @Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
+        }
+        else
+        {
+          <h4>This recipe uses the following ingredients:</h4>
+          <ul>
+          @foreach(IngredientRecipe join in Model.IngredientRecipeJoinEntities)
+          {
+            <li>@join.Ingredient.IngredientName</li>
+            @using (Html.BeginForm("DeleteJoin", "Ingredients"))
+            {
+              @Html.Hidden("joinId", @join.IngredientRecipeId)
+              <input type="submit" value="Delete"/>
+            }
+          }
+          </ul>
+        }      
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Tags
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        @if(@Model.RecipeTagJoinEntities.Count == 0)
+        {
+          <p>This recipe does not have any any tags added yet - @Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
+        }
+        else
+        {
+          <h4>This recipe has the following tags</h4>
+          <ul>
+          @foreach(RecipeTag join in Model.RecipeTagJoinEntities)
+          {
+            <li>@join.Tag.TagName</li>
+            @using (Html.BeginForm("DeleteJoin", "Tags"))
+            {
+              @Html.Hidden("joinId", @join.RecipeTagId)
+              <input type="submit" value="Delete"/>
+            }
+          }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using RecipeBox.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -189,6 +190,25 @@ namespace RecipeBox.Controllers
     public ActionResult NoResults()
     {
       return View();
+    }
+
+    public ActionResult RandomRecipe()
+    {
+      Recipe randomRecipe = _db.Recipes
+        .Include(recipe => recipe.IngredientRecipeJoinEntities)
+        .ThenInclude(join => join.Ingredient)
+        .Include(recipe => recipe.RecipeTagJoinEntities)
+        .ThenInclude(join => join.Tag)
+        .FirstOrDefault();
+      
+      if (randomRecipe != null)
+      {
+        return View(randomRecipe);
+      }
+      else
+      {
+        return RedirectToAction("NoResults");
+      }
     }
   }
 }

@@ -17,6 +17,7 @@ div#footer {
 /* NAVBAR STYLING */
 .navbar {
 	background-color: #ef4229;
+	padding: 5px;
 }
 
 .nav-btn {
@@ -40,11 +41,43 @@ div#footer {
 	text-decoration: underline;
 }
 
+.offcanvas-title {
+	text-decoration: underline;
+}
+
+.navbar-brand {
+	font-size: larger;
+}
 
 /* CARD STYLING  */
-.recipe-card{
+.recipe-card {
 	margin-bottom: 15px;
 }
 
+/* HOMEPAGE TEXT STYLING */
+.headerlink { 
+	color: black;
+}
 
+.headerlink:hover { 
+	color: #ef4229;
+}
+
+.listitems a {
+	color: black;
+}
+
+.listitems:hover a{
+	color: #ef4229;
+}
+
+.listitems:hover{
+	color: #ef4229;
+}
+
+/* BUTTON STYLING */
+input.btn {
+	color: white;
+	background-color: #ef4229;
+}
 
