@@ -3,23 +3,26 @@
 }
 
 @model RecipeBox.Models.Recipe
-
+ 
 <h4>Add a new recipe</h4>
-<p>@Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-<p>@Html.ValidationMessageFor(model => model.RecipeInstructions, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-<p>@Html.ValidationMessageFor(model => model.RecipeRating, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.RecipeName)
-    @Html.TextBoxFor(model => model.RecipeName)
+ <div class="col-md-8">
+  <p>@Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+  <p>@Html.ValidationMessageFor(model => model.RecipeInstructions, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+  <p>@Html.ValidationMessageFor(model => model.RecipeRating, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
-    @Html.LabelFor(model => model.RecipeInstructions)
-    @Html.TextBoxFor(model => model.RecipeInstructions)
+  @using (Html.BeginForm())
+  {
+      @Html.LabelFor(model => model.RecipeName, new { @class = "form-label"})
+      @Html.TextBoxFor(model => model.RecipeName, new { @class = "form-control"})
 
-    @Html.LabelFor(model => model.RecipeRating)
-    @Html.TextBoxFor(model => model.RecipeRating, new { type = "number", step = "1", max = "5" })
-    
-    <input type="submit" value="Add new recipe" class="btn btn-default" />
-}
-<hr>
-<p>@Html.ActionLink("Show all recipes", "Index")</p>
+      @Html.LabelFor(model => model.RecipeInstructions, new { @class = "form-label"})
+      @Html.TextBoxFor(model => model.RecipeInstructions, new { @class = "form-control"})
+
+      @Html.LabelFor(model => model.RecipeRating)
+      @Html.TextBoxFor(model => model.RecipeRating, new { type = "number", step = "1", min = "1", max = "5"})
+  
+      <input type="submit" value="Add new recipe" class="btn btn-default" />
+  }
+  <hr>
+  <p>@Html.ActionLink("Show all recipes", "Index")</p>
+</div>

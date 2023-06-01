@@ -8,7 +8,10 @@
 <h2>Ingredient Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.IngredientName): @Html.DisplayFor(model => model.IngredientName)</h3>
-
+<div class="btn-group test-case" role="group" aria-label="Basic example">
+  <button class="btn buttongroup-upper ">@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</button>
+  <button class="btn buttongroup-upper">@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</button>
+</div>
 @if(@Model.IngredientRecipeJoinEntities.Count == 0)
 {
   <p>This ingredient does not belong to any recipes</p>
@@ -31,5 +34,3 @@ else
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</p>

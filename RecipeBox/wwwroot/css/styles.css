@@ -49,6 +49,10 @@ div#footer {
 	font-size: larger;
 }
 
+.expanded-dropdown {
+	margin-bottom: 15px;
+}
+
 /* CARD STYLING  */
 .recipe-card {
 	margin-bottom: 15px;
@@ -121,8 +125,50 @@ div#footer {
 	margin-bottom: 15px;
 }
 
-/* BUTTON STYLING */
-input.btn {
-	color: white;
+/* RECIPE,INGREDIENT, TAG INDEX() BOTTOM OF PAGE BUTTON STYLING */
+.buttongroup-lower {
+	color: #333333;
 	background-color: #ef4229;
+	outline: 2px solid #ef4229;
+}
+
+.buttongroup-lower:hover {
+	color: #ef4229;
+	background-color: white;
+	outline: 2px solid #ef4229;
+}
+
+.buttongroup-lower a{
+	color: #333333;
+	background-color: #ef4229;
+}
+
+.buttongroup-lower:hover a {
+	color: #ef4229;
+	background-color: white;
+}
+
+/* RECIPE SORT BUTTON STYLING */
+
+.buttongroup-upper {
+	color: #333333;
+	background-color: #ef4229;
+	outline: 2px solid #ef4229;
+	margin-bottom: 15px;
+}
+
+.buttongroup-upper:hover {
+	color: #ef4229;
+	background-color: white;
+	outline: 2px solid #ef4229;
+}
+
+.buttongroup-upper a{
+	color: #333333;
+	background-color: #ef4229;
+}
+
+.buttongroup-upper:hover a {
+	color: #ef4229;
+	background-color: white;
 }
