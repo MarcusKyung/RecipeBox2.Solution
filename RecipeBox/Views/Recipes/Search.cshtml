@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Recipe
+<hr>
+<h4>Search Recipes</h4>
+<hr>
+@using (Html.BeginForm("Results", "Recipes", FormMethod.Post))
+{
+  @Html.LabelFor(model => model.RecipeName, "Recipe Name")
+  @Html.TextBoxFor(model => model.RecipeName)
+
+  <input type="submit" value="Search Recipes" class="btn btn-warning"/>
+}
+
+@* <p>@Html.ActionLink("Add new Engineer", "Create")</p>
+<p>@Html.ActionLink("Add new Machine", "Create", "Machines")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p> *@

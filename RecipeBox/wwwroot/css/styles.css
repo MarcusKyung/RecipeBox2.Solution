@@ -1,39 +1,50 @@
-div#footer {
+/* FOOTER STYLING */
+div#footer { 
 	position: fixed;
 	bottom:0px;
 	left:0px;
 	width:100%;
-	color: black;
-	background: white;
+	color: white;
+	background: #ef4229;
 	padding:8px;
-}
-
-.navbar {
-	background-color: white;
-}
-
-body {
-	background-color: white;
 }
 
 #footerLink {
 	color: black;
 }
 
-.headerlink {
-	color: black;
+
+/* NAVBAR STYLING */
+.navbar {
+	background-color: #ef4229;
 }
 
-/* fix me!! */
-.test-case{ 
-	outline: red dashed 1px;
-	margin-bottom: 10px;
+.nav-btn {
+	background-color: #ef4229;
+	color: #333333;
+	outline: 2px solid #ef4229;
 }
 
+.nav-btn:hover {
+	background-color: white;
+	color: #ef4229;
+	outline-color: 2px solid #333333;
+}
+
+.navbar-nav .nav-link {
+	color: #333333; 
+}
+
+.nav-link:hover {
+	color: #333333; 
+	text-decoration: underline;
+}
+
+
+/* CARD STYLING  */
 .recipe-card{
 	margin-bottom: 15px;
 }
 
-div {
-	outline: red dashed 1px;
-}
+
+

@@ -1,37 +1,45 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
+<nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a href="/"><img src="~/assets/chef.png" style="max-height: 24px; max-width: 24px;" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/">RecipeBox</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Recipes">Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Ingredients">Ingredients</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/Tags">Tags</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Expand for Options</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/Recipes/Create">Add a Recipe</a></li>
-            <li><a class="dropdown-item" href="/Ingredients/Create">Add a Ingredient</a></li>
-            <li><a class="dropdown-item" href="/Tags/Create">Add a Tag</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/Recipes/Search">Search Recipes</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="d-flex">
-        <a class="btn btn-primary" href="/Account">Create/Manage Account</a>
-      </ul>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">RecipeBox</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Recipes">Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Ingredients">Ingredients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Tags">Tags</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Expand for Options</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/Recipes/Create">Add a Recipe</a></li>
+              <li><a class="dropdown-item" href="/Ingredients/Create">Add a Ingredient</a></li>
+              <li><a class="dropdown-item" href="/Tags/Create">Add a Tag</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/Recipes/Search">Search Recipes</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <a class="btn nav-btn" href="/Account">Create/Manage Account</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

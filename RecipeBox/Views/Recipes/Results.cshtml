@@ -1,0 +1,45 @@
+@{
+    Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Recipe
+@using RecipeBox.Models
+<hr>
+<h2>Recipe Search Details:</h2>
+<hr>
+<h3>@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)</h3>
+
+@if (Model.IngredientRecipeJoinEntities.Count == 0)
+{
+    <p>This recipe does not have any ingredients added yet!</p>
+}
+else
+{
+    <h4>This recipe has the following ingredients:</h4>
+    <ul>
+        @foreach (IngredientRecipe join in Model.IngredientRecipeJoinEntities)
+        {
+            <li>@Html.ActionLink(join.Ingredient.IngredientName, "Details", "Ingredients", new { id = join.Ingredient.IngredientId })</li>
+        }
+    </ul>
+}
+
+@if (Model.RecipeTagJoinEntities.Count == 0)
+{
+    <p>This recipe does not have any tags added yet!</p>
+}
+else
+{
+    <h4>This recipe has the following tags:</h4>
+    <ul>
+        @foreach (RecipeTag join in Model.RecipeTagJoinEntities)
+        {
+            <li>@Html.ActionLink(join.Tag.TagName, "Details", "Tags", new { id = join.Tag.TagId })</li>
+        }
+    </ul>
+}
+
+@* <p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p> *@

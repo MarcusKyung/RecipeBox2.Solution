@@ -160,5 +160,35 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     } 
+
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Results(string recipeName)
+    {
+      Recipe thisRecipe = _db.Recipes
+                              .Include(recipe => recipe.IngredientRecipeJoinEntities)
+                              .ThenInclude(join => join.Ingredient)
+                              .Include(tag => tag.RecipeTagJoinEntities)
+                              .ThenInclude(join => join.Tag)
+                              .FirstOrDefault(recipe => recipe.RecipeName == recipeName);
+
+      if (thisRecipe != null)
+      {
+          return View(thisRecipe);
+      }
+      else
+      {
+          return RedirectToAction("NoResults");
+      }
+    }
+
+    public ActionResult NoResults()
+    {
+      return View();
+    }
   }
 }
