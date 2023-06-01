@@ -21,7 +21,7 @@ namespace RecipeBox.Controllers
     [HttpGet("/")]
     public async Task<ActionResult> Index()
     {
-      Ingredient[] ingredients = _db.Ingredients.ToArray();
+      Ingredient[] ingredients = _db.Ingredients.OrderBy(ingredient => ingredient.IngredientName).ToArray();
       Tag[] tags = _db.Tags.ToArray();
       Dictionary<string,object[]> model = new Dictionary<string, object[]>();
       model.Add("ingredients", ingredients);
@@ -32,6 +32,7 @@ namespace RecipeBox.Controllers
         {
           Recipe[] recipes = _db.Recipes
                       .Where(entry => entry.User.Id == currentUser.Id)
+                      .OrderBy(recipe => recipe.RecipeName)
                       .ToArray();
           model.Add("recipes", recipes);
         }
