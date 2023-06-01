@@ -23,16 +23,27 @@ namespace RecipeBox.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public async Task<ActionResult> Index(string sortOrder)
     {
-      string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
-      List<Recipe> userRecipes = _db.Recipes
-                          .Where(entry => entry.User.Id == currentUser.Id)
-                          .Include(recipe => recipe.IngredientRecipeJoinEntities)
-                          .OrderByDescending(recipe => recipe.RecipeRating)
-                          .ToList();
-      return View(userRecipes);
+      if (sortOrder == "rating"){
+        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+        List<Recipe> userRecipes = _db.Recipes
+                            .Where(entry => entry.User.Id == currentUser.Id)
+                            .Include(recipe => recipe.IngredientRecipeJoinEntities)
+                            .OrderByDescending(recipe => recipe.RecipeRating)
+                            .ToList();
+        return View(userRecipes);
+      } else {
+                string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+        List<Recipe> userRecipes = _db.Recipes
+                            .Where(entry => entry.User.Id == currentUser.Id)
+                            .Include(recipe => recipe.IngredientRecipeJoinEntities)
+                            .OrderBy(recipe => recipe.RecipeName)
+                            .ToList();
+        return View(userRecipes);
+      }
     }
 
     public ActionResult Create()  
