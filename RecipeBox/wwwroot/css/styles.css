@@ -19,3 +19,13 @@ body {
 #footerLink {
 	color: black;
 }
+
+/* fix me!! */
+.test-case{ 
+	outline: red dashed 1px;
+	margin-bottom: 10px;
+}
+
+.recipe-card{
+	margin-bottom: 15px;
+}

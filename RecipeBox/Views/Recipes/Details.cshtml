@@ -8,7 +8,6 @@
 <h2>Recipe Details</h2>
 <hr />
 <h3>Recipe Name: @Html.DisplayFor(model => model.RecipeName)</h3>
-@* <h3>Recipe Rating: @Html.DisplayFor(model => model.RecipeRating)/5</h3>   *@
 <h3>Recipe Rating:
   @for (int i = 1; i <= Model.RecipeRating; i++)
   {
@@ -42,7 +41,7 @@
       <div class="accordion-body">
         @if(@Model.IngredientRecipeJoinEntities.Count == 0)
         {
-          <p>This recipe does not have any any ingredients</p>
+          <p>This recipe does not have any any ingredients - @Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
         }
         else
         {
@@ -72,7 +71,7 @@
       <div class="accordion-body">
         @if(@Model.RecipeTagJoinEntities.Count == 0)
         {
-          <p>This recipe does not have any any tags</p>
+          <p>This recipe does not have any any tags - @Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
         }
         else
         {
