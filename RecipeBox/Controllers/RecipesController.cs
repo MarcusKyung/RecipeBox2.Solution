@@ -45,8 +45,7 @@ namespace RecipeBox.Controllers
     {
       if (!ModelState.IsValid)
       {
-        ViewBag.IngredientId = new SelectList(_db.Ingredients, "Ingredientid", "IngredientName");
-        return View(recipe);
+        return View();
       }
       else
       {

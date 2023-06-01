@@ -1,16 +1,21 @@
 div#footer {
-	position:fixed;
+	position: fixed;
 	bottom:0px;
 	left:0px;
 	width:100%;
-	color:#CCC;
-	background:#333;
+	color: black;
+	background: white;
 	padding:8px;
 }
 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    height: auto;
-  }
+.navbar {
+	background-color: white;
+}
+
+body {
+	background-color: white;
+}
+
+#footerLink {
+	color: black;
 }

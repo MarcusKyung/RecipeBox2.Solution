@@ -29,9 +29,16 @@ namespace RecipeBox.Controllers
     [HttpPost]
     public ActionResult Create(Tag tag)
     {
+      if (!ModelState.IsValid)
+      {
+        return View();
+      }
+      else
+      {
       _db.Tags.Add(tag);
       _db.SaveChanges();
       return RedirectToAction("Index");
+      }
     }
     public ActionResult Details(int id)
     {
@@ -91,7 +98,7 @@ namespace RecipeBox.Controllers
       _db.Tags.Remove(thisTag);
       _db.SaveChanges();
       return RedirectToAction("Index");
-    }
+    } 
 
     [HttpPost]
     public ActionResult DeleteJoin(int joinId)

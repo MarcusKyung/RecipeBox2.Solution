@@ -5,6 +5,7 @@
 @model RecipeBox.Models.Ingredient
 
 <h4>Add a new ingredient</h4>
+<p>@Html.ValidationMessageFor(model => model.IngredientName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
