@@ -4,14 +4,15 @@
 
 @model RecipeBox.Models.Ingredient
 
-<h4>Add a new ingredient</h4>
+<h4>Add a New Ingredient</h4>
 <p>@Html.ValidationMessageFor(model => model.IngredientName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.IngredientName)
-  @Html.TextBoxFor(model => model.IngredientName)
+  @Html.LabelFor(model => model.IngredientName, "Ingredient Name", new { @class = "form-label"})
+  @Html.TextBoxFor(model => model.IngredientName, new { @class = "form-control"})
 
   <input type="submit" value="Add new ingredient" class="btn btn-default" />
 }
-<p>@Html.ActionLink("Show all ingredients", "Index")</p>
+<hr>
+<p>@Html.ActionLink("Show all Ingredients", "Index")</p>

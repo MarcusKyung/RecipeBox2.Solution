@@ -3,26 +3,24 @@
 }
 
 @model RecipeBox.Models.Recipe
- 
-<h4>Add a new recipe</h4>
- <div class="col-md-8">
+
+<h4>Add a New Recipe</h4>
   <p>@Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
   <p>@Html.ValidationMessageFor(model => model.RecipeInstructions, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
   <p>@Html.ValidationMessageFor(model => model.RecipeRating, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
   @using (Html.BeginForm())
   {
-      @Html.LabelFor(model => model.RecipeName, new { @class = "form-label"})
+      @Html.LabelFor(model => model.RecipeName, "Recipe Name" , new { @class = "form-label"})
       @Html.TextBoxFor(model => model.RecipeName, new { @class = "form-control"})
 
-      @Html.LabelFor(model => model.RecipeInstructions, new { @class = "form-label"})
+      @Html.LabelFor(model => model.RecipeInstructions, "Recipe Instructions", new { @class = "form-label"})
       @Html.TextBoxFor(model => model.RecipeInstructions, new { @class = "form-control"})
 
-      @Html.LabelFor(model => model.RecipeRating)
+      @Html.LabelFor(model => model.RecipeRating, "Recipe Rating")
       @Html.TextBoxFor(model => model.RecipeRating, new { type = "number", step = "1", min = "1", max = "5"})
   
       <input type="submit" value="Add new recipe" class="btn btn-default" />
   }
   <hr>
-  <p>@Html.ActionLink("Show all recipes", "Index")</p>
-</div>
+  <p>@Html.ActionLink("Show all Recipes", "Index")</p>
