@@ -30,6 +30,7 @@ namespace RecipeBox.Controllers
       List<Recipe> userRecipes = _db.Recipes
                           .Where(entry => entry.User.Id == currentUser.Id)
                           .Include(recipe => recipe.IngredientRecipeJoinEntities)
+                          .OrderBy(recipe => recipe.RecipeName)
                           .ToList();
       return View(userRecipes);
     }

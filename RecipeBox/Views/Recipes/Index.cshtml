@@ -10,11 +10,33 @@
 {
   <h3>No Recipes have been added yet!</h3>
 } 
-
-@foreach (Recipe recipe in Model)
+else
 {
-  <li>@Html.ActionLink($"{recipe.RecipeName}", "Details", new { id = recipe.RecipeId })</li>
+  <div class="row row-cols-2">
+    @foreach (Recipe recipe in Model)
+    {
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">@Html.ActionLink($"{recipe.RecipeName}", "Details", new { id = recipe.RecipeId })</h5>
+            <p class="card-text">Recipe Rating:
+              @for (int i = 1; i <= recipe.RecipeRating; i++)
+              {
+                <i class="fas fa-star"></i>
+              }
+              @for (int i = recipe.RecipeRating + 1; i <= 5; i++)
+              {
+                <i class="far fa-star"></i>
+              }
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    }
+  </div>
 }
 
+<hr>
 <p>@Html.ActionLink("Add new recipe", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
