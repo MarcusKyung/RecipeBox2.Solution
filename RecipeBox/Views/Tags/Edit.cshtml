@@ -12,10 +12,13 @@
 {
     @Html.HiddenFor(model => model.TagId)
 
-    @Html.LabelFor(model => model.TagName)
-    @Html.EditorFor(model => model.TagName)
-
-    <input type="submit" value="Save" />
+    @Html.LabelFor(model => model.TagName, "Tag Name", new { @class = "form-label" })
+    @Html.EditorFor(model => model.TagName, new { htmlAttributes = new { @class = "form-control" } })
+    <br>
+    <input type="submit" value="Save" class="btn btn buttongroup-lower"/>
 }
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<hr>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to List", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>

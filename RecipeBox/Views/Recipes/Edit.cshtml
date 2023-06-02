@@ -12,15 +12,19 @@
 {
     @Html.HiddenFor(model => model.RecipeId)
 
-    @Html.LabelFor(model => model.RecipeName)
-    @Html.EditorFor(model => model.RecipeName)
+    @Html.LabelFor(model => model.RecipeName, "Recipe Name", new { @class = "form-label" })
+    @Html.EditorFor(model => model.RecipeName, new { htmlAttributes = new { @class = "form-control" } })
 
-    @Html.LabelFor(model => model.RecipeInstructions)
-    @Html.EditorFor(model => model.RecipeInstructions)
+    @Html.LabelFor(model => model.RecipeInstructions, "Recipe Instructions:", new { @class = "form-label" })
+    @Html.EditorFor(model => model.RecipeInstructions, new { htmlAttributes = new { @class = "form-control" } })
 
-    @Html.LabelFor(model => model.RecipeRating)
-    @Html.EditorFor(model => model.RecipeRating)
-    <input type="submit" value="Save" />
+    @Html.LabelFor(model => model.RecipeRating, "Recipe Rating:", new { @class = "form-label"})
+    @Html.EditorFor(model => model.RecipeRating, new { htmlAttributes = new { @class = "form-control", type = "number", step = "1", min = "1", max = "5" }})
+    <br>
+    <input type="submit" value="Save" class="btn btn buttongroup-lower"/>
 }
 <hr>
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to List", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
