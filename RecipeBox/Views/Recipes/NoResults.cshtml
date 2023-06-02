@@ -3,10 +3,11 @@
 }
 
 <hr>
-<h2>No search results</h2>
+<h2>No results returned for your search</h2>
 <hr/>
 
-@* <p>@Html.ActionLink("Add new Engineer", "Create")</p>
-<p>@Html.ActionLink("Add new Machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-<p>@Html.ActionLink("Search", "Search")</p> *@
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to Recipes List", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("New Search", "Search")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>

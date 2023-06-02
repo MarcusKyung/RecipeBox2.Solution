@@ -8,12 +8,13 @@
 <hr>
 @using (Html.BeginForm("Results", "Recipes", FormMethod.Post))
 {
-  @Html.LabelFor(model => model.RecipeName, "Recipe Name")
-  @Html.TextBoxFor(model => model.RecipeName)
-
-  <input type="submit" value="Search Recipes" class="btn"/>
+  @Html.LabelFor(model => model.RecipeName, "Recipe Name", new { @class = "form-label"} )
+  @Html.TextBoxFor(model => model.RecipeName, new { @class = "form-control"})
+  <br>
+  <input type="submit" value="Search Recipes" class="btn buttongroup-lower"/>
 }
-
-@* <p>@Html.ActionLink("Add new Engineer", "Create")</p>
-<p>@Html.ActionLink("Add new Machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+<hr>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to List", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
