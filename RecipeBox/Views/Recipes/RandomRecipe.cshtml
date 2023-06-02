@@ -18,6 +18,10 @@
     <i class="far fa-star"></i>
   }
 </h3>
+<div class="btn-group test-case" role="group" aria-label="Basic example">
+  <button class="btn buttongroup-upper ">@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</button>
+  <button class="btn buttongroup-upper">@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</button>
+</div>
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
@@ -75,7 +79,7 @@
         }
         else
         {
-          <h4>This recipe has the following tags</h4>
+          <h4>This recipe has the following tags:</h4>
           <ul>
           @foreach(RecipeTag join in Model.RecipeTagJoinEntities)
           {
@@ -93,9 +97,9 @@
   </div>
 </div>
 <hr>
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to List", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Add an Ingredient", "AddIngredient", new { id = Model.RecipeId })</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.RecipeId })</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
