@@ -7,7 +7,7 @@
 
 <h2>Ingredient Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.IngredientName): @Html.DisplayFor(model => model.IngredientName)</h3>
+<h3>Ingredient Name: @Html.DisplayFor(model => model.IngredientName)</h3>
 <div class="btn-group test-case" role="group" aria-label="Basic example">
   <button class="btn buttongroup-upper ">@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</button>
   <button class="btn buttongroup-upper">@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</button>
@@ -18,7 +18,7 @@
 }
 else
 {
-  <h4>Recipes the ingredient belongs to:</h4>
+  <h4>Recipes using this ingredient:</h4>
   <ul>
   @foreach(IngredientRecipe join in Model.IngredientRecipeJoinEntities)
   {
@@ -32,5 +32,8 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.IngredientId })</p>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to list", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.IngredientId })</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>

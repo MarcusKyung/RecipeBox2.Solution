@@ -7,7 +7,7 @@
 
 <h2>Tag Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.TagName): @Html.DisplayFor(model => model.TagName)</h3>
+<h3>Tag Name: @Html.DisplayFor(model => model.TagName)</h3>
 <div class="btn-group test-case" role="group" aria-label="Basic example">
   <button class="btn buttongroup-upper ">@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</button>
   <button class="btn buttongroup-upper">@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</button>
@@ -18,7 +18,7 @@
 }
 else
 {
-  <h4>Recipes the tag belongs to:</h4>
+  <h4>Recipes with this tag:</h4>
   <ul>
   @foreach(RecipeTag join in Model.RecipeTagJoinEntities)
   {
@@ -32,5 +32,8 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.TagId })</p>
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Back to list", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.TagId })</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
