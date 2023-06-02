@@ -9,10 +9,14 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.IngredientName, "Ingredient Name", new { @class = "form-label"})
+  @Html.LabelFor(model => model.IngredientName, "Ingredient Name:", new { @class = "form-label"})
   @Html.TextBoxFor(model => model.IngredientName, new { @class = "form-control"})
-
-  <input type="submit" value="Add new ingredient" class="btn btn-default" />
+  <br>
+  <input type="submit" value="Add New Ingredient" class="btn buttongroup-lower" />
 }
 <hr>
-<p>@Html.ActionLink("Show all Ingredients", "Index")</p>
+
+<div class="btn-group" role="group">
+  <button class="btn buttongroup-lower">@Html.ActionLink("Show all Ingredients", "Index")</button>
+  <button class="btn buttongroup-lower">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
