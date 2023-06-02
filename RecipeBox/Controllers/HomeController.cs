@@ -22,7 +22,7 @@ namespace RecipeBox.Controllers
     public async Task<ActionResult> Index()
     {
       Ingredient[] ingredients = _db.Ingredients.OrderBy(ingredient => ingredient.IngredientName).ToArray();
-      Tag[] tags = _db.Tags.ToArray();
+      Tag[] tags = _db.Tags.OrderBy(tag => tag.TagName).ToArray();
       Dictionary<string,object[]> model = new Dictionary<string, object[]>();
       model.Add("ingredients", ingredients);
       model.Add("tags", tags);
