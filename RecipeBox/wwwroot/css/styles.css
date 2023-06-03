@@ -7,10 +7,15 @@ div#footer {
 	color: white;
 	background: #ef4229;
 	padding:8px;
+
 }
 
 #footerLink {
 	color: black;
+}
+
+body {
+	padding-bottom: 60px; 
 }
 
 

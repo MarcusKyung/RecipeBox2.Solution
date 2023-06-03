@@ -3,11 +3,17 @@
 }
 
 @using RecipeBox.Models;
-<hr>
-<h3>Welcome, @User.Identity.Name to the RecipeBox!</h3>
-<hr>
-@{
-  Layout = "_Layout";
+@if (User.Identity.IsAuthenticated)
+{
+  <hr>
+  <h3>Welcome, @User.Identity.Name to the RecipeBox!</h3>
+  <hr>
+}
+else
+{
+  <hr>
+  <h3>Welcome to the RecipeBox!</h3>
+  <hr>
 }
 
 @if (User.Identity.IsAuthenticated)
@@ -41,8 +47,14 @@
 }
 else
 {
-  <h4>Recipes</h4>
-  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your recipes.</p>
+  <div class="card mt-4">
+    <div class="card-header">
+      <h4 class="card-title"><h4>Recipes</h4>
+    </div>
+    <div class="card-body">
+      <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your recipes.</p>
+    </div>
+  </div>
 }
 
 <div class="card mt-4">
