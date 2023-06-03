@@ -32,7 +32,7 @@ namespace RecipeBox.Controllers
         {
           Recipe[] recipes = _db.Recipes
                       .Where(entry => entry.User.Id == currentUser.Id)
-                      .OrderBy(recipe => recipe.RecipeName)
+                      .OrderByDescending(recipe => recipe.RecipeRating)
                       .ToArray();
           model.Add("recipes", recipes);
         }
