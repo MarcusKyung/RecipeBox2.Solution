@@ -27,7 +27,7 @@ body {
 
 .nav-btn {
 	background-color: #ef4229;
-	color: #333333;
+	color: white;
 	outline: 2px solid #ef4229;
 }
 
@@ -132,7 +132,7 @@ body {
 
 /* RECIPE,INGREDIENT, TAG INDEX() BOTTOM OF PAGE BUTTON STYLING */
 .buttongroup-lower {
-	color: #333333;
+	color: white;
 	background-color: #ef4229;
 	outline: 2px solid #ef4229;
 }
@@ -144,7 +144,7 @@ body {
 }
 
 .buttongroup-lower a{
-	color: #333333;
+	color: white;
 	background-color: #ef4229;
 }
 
@@ -156,7 +156,7 @@ body {
 /* RECIPE SORT BUTTON STYLING */
 
 .buttongroup-upper {
-	color: #333333;
+	color: white;
 	background-color: #ef4229;
 	outline: 2px solid #ef4229;
 	margin-bottom: 15px;
@@ -169,7 +169,7 @@ body {
 }
 
 .buttongroup-upper a{
-	color: #333333;
+	color: white;
 	background-color: #ef4229;
 }
 
