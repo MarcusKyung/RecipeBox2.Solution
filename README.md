@@ -1,4 +1,28 @@
-# _Recipe Box_
+# _|RecipeBox|_
+<div align="center">
+    <!-- Project Shields -->
+    <div align="center">
+        <a href="https://github.com/MarcusKyung/RecipeBox2.Solution/graphs/contributors">
+            <img src="https://img.shields.io/github/contributors/MarcusKyung/RecipeBox2.Solution.svg?style=plastic">
+        </a>
+        ¨
+        <a href="https://github.com/MarcusKyung/RecipeBox2.Solution/stargazers">
+            <img src="https://img.shields.io/github/stars/MarcusKyung/RecipeBox2.Solution.svg?color=yellow&style=plastic">
+        </a>
+        ¨
+        <a href="https://github.com/MarcusKyung/RecipeBox2.Solution/issues">
+            <img src="https://img.shields.io/github/issues/MarcusKyung/RecipeBox2.Solution?style=plastic">
+        </a>
+        ¨
+        <a href="https://github.com/MarcusKyung/RecipeBox2.Solution/blob/main/LICENSE.txt">
+            <img src="https://img.shields.io/github/license/MarcusKyung/RecipeBox2.Solution?color=orange&style=plastic">
+        </a>
+        ¨
+        <a href="https://linkedin.com/in/MarcusKyung">
+            <img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=plastic&logo=linkedin&colorB=2867B2">
+        </a>
+    </div>
+</div>
 
 #### By _**Marcus Kyung**_
 
@@ -52,9 +76,3 @@ _For questions, comments, or concerns please reach out at Kyungmj@gmail.com_
 MIT License
 
 Copyright (c) [2023] [Marcus Kyung]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR\ A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
